@@ -14,5 +14,5 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements-dev.txt
+      - run: pip install -e . --no-deps
       - run: pytest -q
-

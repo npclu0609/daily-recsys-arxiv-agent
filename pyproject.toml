@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "daily-recsys-arxiv-agent"
+version = "0.1.0"
+description = "Configurable daily arXiv paper digest with Feishu delivery"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "npclu0609" }]
+dependencies = [
+  "PyYAML==6.0.2",
+  "requests==2.32.4",
+  "pypdf==5.7.0",
+]
+
+[project.scripts]
+daily-recsys-papers = "daily_paper_agent.app:main"
+
+[tool.setuptools.packages.find]
+include = ["daily_paper_agent*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
