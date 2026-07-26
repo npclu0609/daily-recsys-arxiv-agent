@@ -1,5 +1,5 @@
 {
-  "count": 12,
+  "count": 19,
   "papers": [
     {
       "arxiv_id": "2607.21519",
@@ -53,6 +53,54 @@
       "practical_value_zh": "为生成式推荐提供新范式，更好地捕捉结构化的物品依赖关系，可集成到大语言模型中提升推荐效果。",
       "quality_signal_zh": "arXiv预印本，代码开源，实验充分但尚未在正式会议发表。",
       "sent_at": "2026-07-26T07:02:58.804499+00:00"
+    },
+    {
+      "arxiv_id": "2607.21101",
+      "title": "Can Generative Recommendation Reach Cold Items? A Temporal Perspective on Semantic-ID Generation",
+      "abstract": "Semantic-ID-based generative recommendation represents items as sequences of shared semantic tokens, enabling token recombination beyond isolated item IDs. However, closed-world recombination does not necessarily imply temporal open-token cold-start induction, where new items enter the item catalog with unseen atomic tokens or weakly supported SID paths. In this work, we revisit SID-based generative recommendation under an absolute-time temporal protocol that separates seen and unseen targets and diagnoses the cold item reachability at the token level. Through seen/unseen-hit analysis, coldness taxonomy, and oracle-prefix probing, we show that current SID-based models can occasionally reach future items supported by observed tokens and prefixes, but struggle with unseen atomic tokens and unsupported SID paths. We further explain this boundary by interpreting SID generation as hierarchical semantic bucketing: early tokens select coarse semantic regions, while later tokens refine item-specific paths. These findings show that SID generation is compositional but not fully open-ended, and suggest future directions in more independent SID spaces, scoring-based interfaces, and dynamic textual context.",
+      "authors": [
+        "Jie Peng",
+        "Yanping Zheng",
+        "Zhewei Zhe",
+        "Bin Tong",
+        "Guan Wang",
+        "Bo Zheng"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "published_at": "2026-07-23T09:30:49Z",
+      "updated_at": "2026-07-23T09:30:49Z",
+      "abs_url": "https://arxiv.org/abs/2607.21101",
+      "pdf_url": "https://arxiv.org/pdf/2607.21101",
+      "comment": "",
+      "affiliations": [
+        "Meta",
+        "Alibaba",
+        "Taobao",
+        "Renmin University of China"
+      ],
+      "affiliations_zh": [
+        "中国人民大学",
+        "阿里巴巴"
+      ],
+      "topic": "generative_recommendation",
+      "topic_zh": "生成式推荐",
+      "subtopics_zh": [
+        "语义ID",
+        "生成式推荐",
+        "冷启动",
+        "时间协议"
+      ],
+      "model_name": "TIGER",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": "",
+      "quality_score": 47.0,
+      "summary_zh": "从时间视角分析语义ID生成式推荐对冷物品的可达性，发现模型可组合训练中见过的token和前缀，但对未见原子token和未支持路径难以泛化，并提出分层语义分桶解释。",
+      "practical_value_zh": "揭示了现有语义ID生成式推荐在冷启动场景下的边界，指导未来设计更开放的语义空间或评分接口以提升冷物品推荐能力。",
+      "quality_signal_zh": "本文为arXiv预印本，尚未经正式会议或期刊同行评审。",
+      "sent_at": "2026-07-26T07:05:55.356523+00:00"
     },
     {
       "arxiv_id": "2607.21028",
@@ -597,6 +645,319 @@
       "venue_name": "ICTIR",
       "venue_status_zh": "已录用",
       "ccf_rank": "N"
+    },
+    {
+      "arxiv_id": "2607.16633",
+      "title": "Beyond Fixed Depths and Widths: Optimizing Textual Decoding Tries in LLM-based Generative Recommendation",
+      "abstract": "Generative recommendation (GR) is an increasingly popular paradigm in recommender systems, with a prominent line of work using LLMs as autoregressive backbones to predict the next item's term IDs (e.g., titles or keywords). The success of autoregressive generation hinges on constrained beam search over a decoding trie to ensure that generated outputs correspond to valid items. However, current research predominantly focuses on generating more comprehensive term IDs to describe items, while largely neglecting the structural design of the decoding trie formed by these terms. This can lead to a trie that is poorly suited to beam search, which degrades performance. To address this, we examine the effectiveness of term IDs from the perspective of decoding trie optimization. Through empirical and theoretical analyses, we identify two desirable properties for a highly performant trie: (1) adaptive and variable ID length, enabling items with varying semantic richness to be represented by IDs of appropriate lengths, and (2) constrained branching factors, especially at shallow levels, which drastically improves the success rate of constrained beam search. Motivated by these properties, we introduce BONSAI: Branching-Optimized Node Structure for Adaptive Identifiers, a novel framework that co-designs textual term IDs and their underlying decoding trie. BONSAI extracts recommendation-informative words from item metadata and employs a minimum set cover formulation to recursively build a trie that satisfies the above properties. Experiments reveal that BONSAI achieves up to a 21.6% relative improvement over state-of-the-art baselines. Further analyses confirm the crucial role of our proposed properties, and demonstrate their generalizability to be applied to enhance the performance of other term ID methods.",
+      "authors": [
+        "Jingzhe Liu",
+        "Hanbing Wang",
+        "Jiliang Tang",
+        "Liam Collins",
+        "Tong Zhao",
+        "Neil Shah",
+        "Mingxuan Ju"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-18T04:31:02Z",
+      "updated_at": "2026-07-18T04:31:02Z",
+      "abs_url": "https://arxiv.org/abs/2607.16633",
+      "pdf_url": "https://arxiv.org/pdf/2607.16633",
+      "comment": "",
+      "affiliations": [
+        "Meta",
+        "Amazon",
+        "Snap",
+        "Michigan State University",
+        "Snap Inc."
+      ],
+      "affiliations_zh": [
+        "密歇根州立大学",
+        "Snap公司"
+      ],
+      "topic": "recommender_systems",
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "生成式推荐",
+        "解码Trie优化",
+        "语义ID",
+        "推荐系统"
+      ],
+      "model_name": "BONSAI",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": "",
+      "quality_score": 47.0,
+      "summary_zh": "提出BONSAI框架，优化LLM生成式推荐中的解码Trie结构，实现自适应ID长度和约束分支因子，性能提升21.6%。",
+      "practical_value_zh": "提升生成式推荐的准确性和效率，可适用于现有基于项ID的推荐方法。",
+      "quality_signal_zh": "arXiv预印本，理论分析+实验验证，代码已开源。",
+      "sent_at": "2026-07-26T07:05:55.356523+00:00"
+    },
+    {
+      "arxiv_id": "2607.15730",
+      "title": "RECAP: Feedback-Driven Streaming Semantic User Profiles for Short-Video Recommendation",
+      "abstract": "Language-based user profiles convert long behavioral histories into explicit semantic representations for recommendation. However, most profile generators are optimized in an open loop: they may summarize past behavior fluently, but are not directly trained to improve future recommendation. We study this problem in real-world short-video recommendation, where user behaviors continuously arrive as streams and profiles must be incrementally updated under limited capacity. This requires maintaining a consistent bounded profile state and constructing profile-targeted semantic feedback from industrial implicit behavior logs. We propose RECAP, an offline closed-loop framework for optimizing streaming structured semantic profiles with historical recommendation feedback. RECAP maintains each profile as a bounded structured memory by combining LLM-based semantic updates with deterministic lifecycle and capacity control. RECAP constructs profile-targeted semantic feedback by filtering label-consistent behavior pairs with an LLM judge and training a dual-tower evaluator whose matching score serves as a GRPO reward. Experiments on Kuaishou short-video data show that RECAP improves uAUC by 0.0084 and Recall@2000 by about 4.9% over the base generator. Further analyses confirm the benefits of feedback construction and policy optimization, and show more grounded refinement and user-level abstraction in profile updates. A seven-day online A/B test further shows a statistically significant 0.139% improvement in average application usage time per user.",
+      "authors": [
+        "Ziyi Zhao",
+        "Xiaoyou Zhou",
+        "Xiao Lv",
+        "Yangyang Li",
+        "Chubo He",
+        "Zhao Liu",
+        "Jiayao Shen",
+        "Yuqi Liu",
+        "He Li",
+        "Chengyi Zhang",
+        "Jian Liang",
+        "Ming Li",
+        "Chongming Gao",
+        "Fuli Feng",
+        "Ruiming Tang",
+        "Han Li"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-17T08:10:37Z",
+      "updated_at": "2026-07-17T08:10:37Z",
+      "abs_url": "https://arxiv.org/abs/2607.15730",
+      "pdf_url": "https://arxiv.org/pdf/2607.15730",
+      "comment": "9 pages, 5 figures, 2 tables. Accepted at RecSys 2026",
+      "affiliations": [
+        "Kuaishou",
+        "University of Science and Technology of China",
+        "Kuaishou Technology",
+        "China Academy of Cyber"
+      ],
+      "affiliations_zh": [
+        "快手科技",
+        "中国科学技术大学",
+        "中国网络研究院"
+      ],
+      "topic": "llm4rec",
+      "topic_zh": "LLM4Rec",
+      "subtopics_zh": [
+        "用户画像",
+        "流式推荐",
+        "反馈优化",
+        "LLM4Rec"
+      ],
+      "model_name": "RECAP",
+      "venue_name": "RecSys",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "B",
+      "quality_score": 52.0,
+      "summary_zh": "RECAP是一个离线闭环框架，利用历史推荐反馈优化流式结构化语义用户画像。在快手短视频数据上，相比基础生成器，uAUC提升0.0084，Recall@2000提升约4.9%；在线A/B测试中，用户平均使用时长显著提升0.139%。",
+      "practical_value_zh": "该框架可直接部署于工业短视频推荐系统，通过反馈闭环持续优化用户画像，提升推荐效果和用户参与度，具有实际应用价值。",
+      "quality_signal_zh": "论文被RecSys 2026（CCF B类会议）录用，在真实工业数据和在线实验中验证了有效性，方法可靠。",
+      "sent_at": "2026-07-26T07:05:55.356523+00:00"
+    },
+    {
+      "arxiv_id": "2607.12945",
+      "title": "RecRec: Latent Interests Recursive Reasoning for Sequential Recommendation",
+      "abstract": "Sequential recommender systems rely on a single forward pass to encode user interaction histories and predict the next item. Increasing inference-time computation through latent reasoning, with the model proceeding step by step before the final prediction, has been recently explored in sequential recommendation with promising results. However, how to structure the reasoning process for sequential recommendation remains an open question. Existing approaches couple reasoning and prediction in a single $d$-dimensional state, limiting reasoning depth and often relying on multi-stage pipelines with reinforcement learning (RL). We propose RecRec (Recursive Reasoning for Recommendation), an RL-free framework that decouples reasoning from prediction, overcoming the fixed $d$-dimensional state bottleneck of prior methods. RecRec consists of a Context Compressor and a Recursive Reasoner, trained in two simple supervised stages. The Context Compressor distills the backbone's hidden states into a small set of latent interests, with an Interest Diversity Regularizer encouraging each interest to capture a distinct aspect of user behavior. The Recursive Reasoner then refines these interests by reasoning in a separate intermediate latent space. Deep supervision lets the reasoning depth be freely adjusted at inference without retraining. On four real-world datasets, RecRec outperforms state-of-the-art reasoning-enhanced methods, and on three of four datasets, gains extend past the training-time depth. Our findings point to a decoupled, multi-vector recipe that unleashes latent reasoning from the single-state bottleneck of prior methods, suggesting reasoning-state structure as a design axis to explore further in sequential recommendation.",
+      "authors": [
+        "Wenhao Deng",
+        "Junchen Fu",
+        "Hanwen Du",
+        "Alexandros Karatzoglou",
+        "Ioannis Arapakis",
+        "Hangjun Guo",
+        "Kaiwen Zheng",
+        "Yongxin Ni",
+        "Joemon M. Jose"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-14T16:28:28Z",
+      "updated_at": "2026-07-14T16:28:28Z",
+      "abs_url": "https://arxiv.org/abs/2607.12945",
+      "pdf_url": "https://arxiv.org/pdf/2607.12945",
+      "comment": "Accepted at RecSys 2026, 10 pages",
+      "affiliations": [
+        "Amazon",
+        "Carnegie Mellon University",
+        "University of Glasgow",
+        "Ohio State University",
+        "Telefónica Scientific Research",
+        "National University of Singapore"
+      ],
+      "affiliations_zh": [
+        "格拉斯哥大学",
+        "俄亥俄州立大学",
+        "Amazon",
+        "Telefónica Scientific Research",
+        "卡内基梅隆大学",
+        "新加坡国立大学"
+      ],
+      "topic": "recommender_systems",
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "顺序推荐",
+        "潜在推理",
+        "递归推理",
+        "推荐系统"
+      ],
+      "model_name": "RecRec",
+      "venue_name": "RecSys",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "B",
+      "quality_score": 61.5,
+      "summary_zh": "提出RecRec，一种无强化学习的递归推理框架，通过解耦推理与预测，使用上下文压缩器和递归推理器在潜在兴趣空间中进行多步推理，在四个数据集上超越现有方法。",
+      "practical_value_zh": "通过解耦推理与预测，允许自由调整推理深度，无需重新训练，可提升推荐系统的推理效率和性能，适用于需要多步推理的推荐场景。",
+      "quality_signal_zh": "已被RecSys 2026录用",
+      "sent_at": "2026-07-26T07:05:55.356523+00:00"
+    },
+    {
+      "arxiv_id": "2607.12578",
+      "title": "Cheaper is Better: A Discount-Aware Network for Conversion Rate Prediction in E-commerce Recommendation System",
+      "abstract": "Post-click conversion rate (CVR) is a crucial element in online recommendation systems, which addresses significant challenges such as data sparsity (DS), sample selection bias (SSB), and delayed feedback. However, the impact of item discount rate-a key factor influencing both pricing and user purchasing behavior, has received limited attention. In this paper, we introduce the Discount-Aware Network (DANet) to model the relationship between item discount rates and CVR. DANet comprises three main components: 1) a time-frequency transformation module that utilizes Fourier transform to derive the frequency spectrum and capture the long-term discount rate trends of items; 2) a distribution de-bias module designed to mitigate the biases in user-specific discount rates caused by various purchase combinations and promotional activities, as well as periodic deviations linked to different promotion periods on e-commerce platforms; and 3) a supervised regression auxiliary task that establishes the explicit item discount labels to enhance the model's performance in terms of value accuracy, facilitating an effective representation of item discount rates. Experimental results on real datasets demonstrate the superiority of DANet, with offline AUC improving by 1.61%, and online A/B test also shows that DANet achieves impressive gains of 3.63% on pCVR and 2.23% on GMV. DANet has been successfully deployed on Alibaba Tmall APP. The code is available at https://github.com/tangrc/DANet.",
+      "authors": [
+        "Ruocong Tang",
+        "Yang Huang",
+        "Xing Fang",
+        "Chenyi Yan",
+        "Chuike Sun",
+        "Jing Wang"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-14T09:49:17Z",
+      "updated_at": "2026-07-14T09:49:17Z",
+      "abs_url": "https://arxiv.org/abs/2607.12578",
+      "pdf_url": "https://arxiv.org/pdf/2607.12578",
+      "comment": "",
+      "affiliations": [
+        "Alibaba",
+        "Taobao",
+        "JD",
+        "Alibaba Group"
+      ],
+      "affiliations_zh": [
+        "阿里巴巴集团"
+      ],
+      "topic": "online_advertising",
+      "topic_zh": "广告算法",
+      "subtopics_zh": [
+        "转化率预测",
+        "折扣感知",
+        "推荐系统",
+        "广告算法"
+      ],
+      "model_name": "DANet",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": "",
+      "quality_score": 52.5,
+      "summary_zh": "提出折扣感知网络DANet，包含时频变换、分布去偏和回归辅助任务模块，建模折扣率与转化率关系，在阿里天猫部署，离线AUC提升1.61%，在线pCVR提升3.63%。",
+      "practical_value_zh": "在线A/B测试显示，DANet在pCVR上提升3.63%，GMV提升2.23%，已成功部署于阿里天猫APP。",
+      "quality_signal_zh": "arXiv 元数据未确认会议状态；按相关性、实验与工业信号综合入选。",
+      "sent_at": "2026-07-26T07:05:55.356523+00:00"
+    },
+    {
+      "arxiv_id": "2607.10910",
+      "title": "ZoRRO: A Zero-Weight Personalized Recommender System for Scalable News Recommendation",
+      "abstract": "We present ZoRRO (Zero-Weight Personalized Recommender System), a zero-weight, training-free framework for personalized news recommendation designed for scalable real-world deployment. ZoRRO outperforms strong neural baselines in offline ranking evaluations and achieves click-through rate performance in online A/B testing that is nearly on par with a state-of-the-art deep learning model, while operating more than 600 times faster. Our experiments reveal gaps between offline and online performance and demonstrate that models with similar click-through rate outcomes can produce markedly different recommendation distributions, thereby influencing the overall news flow. These findings position ZoRRO as a practical and efficient solution for large-scale news recommendation and highlight the importance of evaluating recommender systems using metrics beyond accuracy alone.",
+      "authors": [
+        "Johannes Kruse",
+        "Ryotaro Shimizu",
+        "Kasper Lindskow",
+        "Jon Tofteskov",
+        "Michael Riis Andersen",
+        "Julian McAuley",
+        "Jes Frellsen"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.LG"
+      ],
+      "published_at": "2026-07-12T20:30:24Z",
+      "updated_at": "2026-07-12T20:30:24Z",
+      "abs_url": "https://arxiv.org/abs/2607.10910",
+      "pdf_url": "https://arxiv.org/pdf/2607.10910",
+      "comment": "6 pages, 2 figures. Accepted at the 49th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '26), Melbourne, Australia, July 20-24, 2026. Code available at https://github.com/johanneskruse/zorro",
+      "affiliations": [
+        "Amazon",
+        "NVIDIA",
+        "Technical University of Denmark",
+        "JP/Politikens Media Group",
+        "ZOZO Research",
+        "University of California San Diego"
+      ],
+      "affiliations_zh": [
+        "丹麦技术大学",
+        "JP/Politikens媒体集团",
+        "ZOZO Research",
+        "加利福尼亚大学圣地亚哥分校",
+        "人工智能先锋中心"
+      ],
+      "topic": "recommender_systems",
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "零权重推荐",
+        "新闻推荐",
+        "可扩展推荐",
+        "推荐系统"
+      ],
+      "model_name": "ZoRRO",
+      "venue_name": "SIGIR",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "A",
+      "quality_score": 65.5,
+      "summary_zh": "提出零权重、免训练的新推荐框架ZoRRO，结合文章时效性与表示相似性，离线优于强基线，在线A/B测试CTR接近SOTA模型，速度提升600倍以上。",
+      "practical_value_zh": "极低计算开销，易于部署，适合大规模新闻推荐场景，在线表现与复杂模型相当。",
+      "quality_signal_zh": "被SIGIR'26录用，提供代码开源，包含离线评估和在线A/B测试验证。",
+      "sent_at": "2026-07-26T07:05:55.356523+00:00"
+    },
+    {
+      "arxiv_id": "2607.10541",
+      "title": "RecRec: Recursive Refinement for Sequential Recommendation",
+      "abstract": "Sequential recommender systems typically infer user preferences through single-pass encoding of interaction histories without iterative refinement, relying on increasingly deep architectures to capture complex patterns. In this work, we revisit sequential recommendation from a recursive inference perspective: can user preferences be modeled as a persistent latent state that is recursively refined? We propose RecRec (Recursive Recommendation), a lightweight model that maintains a compact latent state and updates it through a shared recursive module conditioned on interaction evidence. Unlike prior recursive models, RecRec introduces an evidence-anchored correction mechanism that stabilizes refinement by grounding each update in the original interaction context, preventing semantic drift during deep recursive reasoning. Experiments on three benchmark datasets under standard evaluation protocols show that RecRec matches or outperforms state-of-the-art sequential, graph-based, and reasoning-enhanced recommenders while using only 3.9M to 14M parameters. Ablation studies demonstrate that both recursive refinement and the evidence-anchored correction gate contribute significantly to performance, highlighting the effectiveness of recursive latent inference as a scalable alternative to deeper or language-based architectures. Code is available at https://anonymous.4open.science/r/RecRec-6B67/README.md.",
+      "authors": [
+        "Pervez Shaik",
+        "Prosenjit Biswas",
+        "Abhinav Thorat",
+        "Ravi Kolla",
+        "Niranjan Pedanekar"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.LG"
+      ],
+      "published_at": "2026-07-12T02:53:17Z",
+      "updated_at": "2026-07-15T10:06:25Z",
+      "abs_url": "https://arxiv.org/abs/2607.10541",
+      "pdf_url": "https://arxiv.org/pdf/2607.10541",
+      "comment": "7 pages, 3 figures",
+      "affiliations": [
+        "Meta",
+        "Sony Research India"
+      ],
+      "affiliations_zh": [
+        "索尼研究印度"
+      ],
+      "topic": "recommender_systems",
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "序列推荐",
+        "递归模型",
+        "校正机制",
+        "偏好建模"
+      ],
+      "model_name": "RecRec",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": "",
+      "quality_score": 52.0,
+      "summary_zh": "提出递归精炼模型RecRec，通过维护紧凑隐状态并递归更新，引入证据锚定校正机制防止语义漂移，在三个基准数据集上以少量参数达到SOTA性能。",
+      "practical_value_zh": "轻量级模型，参数仅3.9M-14M，适合资源受限场景的工业部署。",
+      "quality_signal_zh": "arXiv预印本，实验充分，含消融研究，与多种基线对比，代码开源。",
+      "sent_at": "2026-07-26T07:05:55.356523+00:00"
     }
   ]
 }
