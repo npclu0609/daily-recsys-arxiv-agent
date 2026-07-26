@@ -1,0 +1,125 @@
+project:
+  name: "Daily Recsys Papers"
+  language: "zh-CN"
+  timezone: "Asia/Shanghai"
+
+schedule:
+  max_papers_per_day: 20
+  lookback_days: 30
+  candidate_limit: 150
+  pdf_enrichment_limit: 30
+  pdf_workers: 4
+  pdf_fallback_enabled: false
+  message_chunk_size: 5
+  notify_when_empty: false
+
+research:
+  arxiv_categories:
+    - cs.IR
+    - cs.LG
+    - cs.AI
+  topics:
+    recommender_systems:
+      - recommender system
+      - recommendation
+      - sequential recommendation
+      - collaborative filtering
+      - ranking
+    search_and_retrieval:
+      - information retrieval
+      - search ranking
+      - learning to rank
+      - dense retrieval
+      - generative retrieval
+      - query understanding
+    online_advertising:
+      - online advertising
+      - ad recommendation
+      - click-through rate
+      - conversion rate
+      - ctr prediction
+      - cvr prediction
+      - auction
+    llm4rec:
+      - llm4rec
+      - large language model recommendation
+      - language agent recommendation
+      - semantic user profile
+    generative_recommendation:
+      - generative recommendation
+      - semantic id
+      - item tokenization
+      - generative recommender
+  exclude_keywords:
+    - medical recommendation
+    - clinical recommendation
+    - drug recommendation
+
+quality:
+  minimum_score: 45
+  preferred_venues:
+    - SIGIR
+    - KDD
+    - WWW
+    - The Web Conference
+    - NeurIPS
+    - ICML
+    - AAAI
+    - IJCAI
+    - ACL
+    - RecSys
+    - WSDM
+    - CIKM
+  preferred_institutions:
+    - Google
+    - DeepMind
+    - Meta
+    - Microsoft
+    - Amazon
+    - NVIDIA
+    - ByteDance
+    - Alibaba
+    - Taobao
+    - Tencent
+    - Meituan
+    - Kuaishou
+    - Baidu
+    - Huawei
+    - JD
+    - Ant Group
+    - Netflix
+    - Spotify
+    - Snap
+    - Pinterest
+    - Yandex
+    - Tsinghua University
+    - Peking University
+    - University of Science and Technology of China
+    - Zhejiang University
+    - Shanghai Jiao Tong University
+    - Carnegie Mellon University
+    - Stanford University
+    - University of Illinois
+  evidence_keywords:
+    - online a/b
+    - online experiment
+    - deployed in production
+    - industrial-scale
+    - production dataset
+    - source code
+    - code is available
+
+llm:
+  enabled: true
+  base_url: "https://api.openai.com/v1"
+  model: "gpt-5-mini"
+  api_key_env: "LLM_API_KEY"
+  timeout_seconds: 90
+
+feishu:
+  webhook_env: "FEISHU_WEBHOOK_URL"
+  timeout_seconds: 30
+
+state:
+  sent_file: "data/sent_papers.json"
+  latest_file: "data/latest.json"

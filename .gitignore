@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.env
+config.local.yaml
+data/latest.json
+
