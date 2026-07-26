@@ -112,7 +112,7 @@ quality:
 llm:
   enabled: true
   base_url: "https://api.deepseek.com"
-  model: "deepseek-chat"
+  model: "deepseek-v4-flash"
   api_key_env: "LLM_API_KEY"
   timeout_seconds: 90
 
