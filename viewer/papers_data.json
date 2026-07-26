@@ -1,6 +1,59 @@
 {
-  "count": 9,
+  "count": 12,
   "papers": [
+    {
+      "arxiv_id": "2607.21519",
+      "title": "Diffusion Language Model for Recommendation",
+      "abstract": "Large language model (LLM)-empowered recommender systems have emerged as a promising paradigm for generative recommendation, leveraging their strong semantic reasoning and generative capacity to model complex, diverse user preferences. However, most existing approaches rely on an autoregressive paradigm that is suboptimal for recommendation. The next-token objective emphasizes sequential order rather than the structural inter-item dependencies underlying user preferences. In addition, prefix-constrained generation restricts bidirectional context and commits to left-to-right decoding, causing early errors to accumulate without correction. Inspired by the success of diffusion language models, we propose \\textbf{DLMRec}, a discrete diffusion language model tailored for recommendation that offers a compelling alternative to autoregressive generation. Specifically, DLMRec introduces three key components to bridge diffusion language modeling with recommendation. First, a collaborative-aware stochastic tokenizer encodes multi-hop collaborative signals into expressive discrete tokens compatible with diffusion modeling. Second, a curriculum-driven training strategy aligns the denoising process with preference recovery through progressive item- and token-level learning. Third, a stability-aware voting mechanism aggregates iterative predictions to improve generation consistency and robustness.",
+      "authors": [
+        "Chengyi Liu",
+        "Yongqi Zhou",
+        "Junwei Pan",
+        "Zhixiang Feng",
+        "Chengguo Yin",
+        "Haijie Gu",
+        "Jie Jiang",
+        "Yinghao Liu",
+        "Yujuan Ding",
+        "Qing Li",
+        "Wenqi Fan"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-23T17:02:12Z",
+      "updated_at": "2026-07-23T17:02:12Z",
+      "abs_url": "https://arxiv.org/abs/2607.21519",
+      "pdf_url": "https://arxiv.org/pdf/2607.21519",
+      "comment": "30 pages, 9 figures",
+      "affiliations": [
+        "Meta",
+        "Tencent",
+        "The Hong Kong Polytechnic University",
+        "Tencent Inc."
+      ],
+      "affiliations_zh": [
+        "香港理工大学",
+        "腾讯公司"
+      ],
+      "topic": "recommender_systems",
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "扩散语言模型",
+        "生成式推荐",
+        "离散扩散模型",
+        "推荐系统"
+      ],
+      "model_name": "DLMRec",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": "",
+      "quality_score": 45.0,
+      "summary_zh": "提出DLMRec，一种基于离散扩散语言模型的推荐方法，通过协同感知随机分词器、课程驱动训练策略和稳定性投票机制，有效建模用户偏好，优于自回归方法。",
+      "practical_value_zh": "为生成式推荐提供新范式，更好地捕捉结构化的物品依赖关系，可集成到大语言模型中提升推荐效果。",
+      "quality_signal_zh": "arXiv预印本，代码开源，实验充分但尚未在正式会议发表。",
+      "sent_at": "2026-07-26T07:02:58.804499+00:00"
+    },
     {
       "arxiv_id": "2607.21028",
       "title": "Bridging the Structural Gap: Adapting Autoregressive Generation for Recommendation",
@@ -87,6 +140,66 @@
       "venue_name": "arXiv",
       "venue_status_zh": "预印本",
       "ccf_rank": ""
+    },
+    {
+      "arxiv_id": "2607.20863",
+      "title": "Probabilistic Residual Learning for Online Recommendations",
+      "abstract": "Modern recommender systems are typically based on deep learning (DL) models, where a dense encoder learns representations of users and items. As a result, these systems often suffer from the black-box nature and computational complexity of the underlying models, making it difficult to systematically enhance their recommendation capabilities. To address this problem, we propose Probabilistic Residual Learning (PRL), a causal Bayesian recommendation model that models the residual between ground-truth and base predictions, enabling targeted refinement of existing systems. Specifically, PRL (1) probabilistically groups users for localized residual modeling, (2) models domain-level confounders that influence user and item representations, and (3) aggregates cluster-specific residual predictions over the confounders using do-calculus. Experiments demonstrate that our plug-and-play PRL is compatible with various base deep learning recommender systems, improving their performance while automatically discovering meaningful user clusters.",
+      "authors": [
+        "Wenyuan Wang",
+        "Yusong Zhao",
+        "Zihao Xu",
+        "Hengyi Wang",
+        "Qi Xu",
+        "Zhigang Hua",
+        "Yan Xie",
+        "Yi Wang",
+        "Zihao Zhao",
+        "Bo Long",
+        "Chengzhi Mao",
+        "Shuang Yang",
+        "Hengguan Huang",
+        "Hao Wang"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published_at": "2026-07-23T02:39:12Z",
+      "updated_at": "2026-07-23T02:39:12Z",
+      "abs_url": "https://arxiv.org/abs/2607.20863",
+      "pdf_url": "https://arxiv.org/pdf/2607.20863",
+      "comment": "Accepted at the 20th ACM Conference on Recommender Systems (RecSys 2026)",
+      "affiliations": [
+        "Meta",
+        "Rutgers University",
+        "University of Copenhagen",
+        "UIUC"
+      ],
+      "affiliations_zh": [
+        "罗格斯大学",
+        "Meta",
+        "哥本哈根大学",
+        "伊利诺伊大学厄巴纳-香槟分校"
+      ],
+      "topic": "recommender_systems",
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "因果推荐",
+        "贝叶斯推断",
+        "用户聚类",
+        "推荐系统"
+      ],
+      "model_name": "PRL",
+      "venue_name": "RecSys",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "B",
+      "quality_score": 47.5,
+      "summary_zh": "提出概率残差学习（PRL），一种因果贝叶斯推荐模型，通过建模残差、概率化用户聚类和域级混杂因子调整，作为即插即用模块提升任意基础推荐系统的性能。",
+      "practical_value_zh": "可即插即用于现有深度学习推荐系统，自动发现用户聚类以增强跨域和冷启动场景下推荐效果，同时提升模型可解释性。",
+      "quality_signal_zh": "已被 RecSys 2026 录用（CCF B类会议），方法完整且实验充分。",
+      "sent_at": "2026-07-26T07:02:58.804499+00:00"
     },
     {
       "arxiv_id": "2607.19987",
@@ -238,6 +351,50 @@
       "venue_name": "RecSys",
       "venue_status_zh": "已录用",
       "ccf_rank": "B"
+    },
+    {
+      "arxiv_id": "2607.19189",
+      "title": "Spectral Biclustering-Driven Scalability for Post-Hoc Explainability in Recommender Systems",
+      "abstract": "Explainability in recommender systems is essential for ensuring transparency, accountability, and trust, yet existing post-hoc methods often encounter severe scalability challenges. Observation-level deletion diagnostics offer a counterfactual way to analyze recommendations by retraining models after removing individual users or items, but their cost grows rapidly with dataset size. To improve the practical tractability of this analysis, this paper introduces a block-deletion diagnostic framework that uses spectral biclustering to group users and items and then removes entire blocks of interactions. This formulation reduces the number of retraining procedures relative to finer-grained deletion strategies and produces explanations at the level of user segments, item groups, and their interactions. The framework is evaluated on two representative recommender paradigms, Singular Value Decomposition and Neural Collaborative Filtering, using the MovieLens and Amazon datasets. The results show that top-ranked recommendations are often more sensitive to specific interaction blocks than lower-ranked ones, with some blocks acting as supporting evidence and others having a detrimental effect on recommendation quality. The analysis also indicates that user segments differ in their sensitivity to block removal, suggesting heterogeneous levels of reliance on localized interaction patterns. These findings provide diagnostic information that is not directly visible through standard recommendation metrics. Overall, the results suggest that block-deletion diagnostics offer a practical and model-agnostic post-hoc analysis framework for recommender systems, while also highlighting that the resulting explanations depend on the chosen block structure.",
+      "authors": [
+        "Jose L. Salmeron",
+        "Irina Arévalo"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-21T15:22:12Z",
+      "updated_at": "2026-07-21T15:22:12Z",
+      "abs_url": "https://arxiv.org/abs/2607.19189",
+      "pdf_url": "https://arxiv.org/pdf/2607.19189",
+      "comment": "",
+      "affiliations": [
+        "Meta",
+        "Amazon",
+        "School of Engineering, CUNEF Universidad",
+        "School of Civil Engineering, Universidad Politécnica de Madrid"
+      ],
+      "affiliations_zh": [
+        "CUNEF大学",
+        "马德里理工大学"
+      ],
+      "topic": "recommender_systems",
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "后事解释",
+        "谱双聚类",
+        "推荐系统",
+        "广告精排"
+      ],
+      "model_name": "",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": "",
+      "quality_score": 47.0,
+      "summary_zh": "提出基于谱双聚类的块删除诊断框架，通过移除用户-物品交互块进行反事实分析，以提升后事可解释性的可扩展性。在SVD和NCF模型上验证，表明该方法能揭示影响推荐质量的关键交互模式。",
+      "practical_value_zh": "为推荐系统提供模型无关的后事分析工具，帮助识别用户群和物品群的影响，无需重新训练整个模型即可获得可解释性。",
+      "quality_signal_zh": "arXiv 元数据未确认会议状态；按相关性、实验与工业信号综合入选。",
+      "sent_at": "2026-07-26T07:02:58.804499+00:00"
     },
     {
       "arxiv_id": "2607.18796",
