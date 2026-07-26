@@ -9,6 +9,10 @@ on:
         description: "Maximum number of unseen papers to send"
         required: false
         default: "20"
+      candidate_limit:
+        description: "Optional arXiv candidate pool size override"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -36,11 +40,14 @@ jobs:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: |
+          args=(--config config.yaml)
           if [ -n "${{ inputs.max_papers }}" ]; then
-            python -m daily_paper_agent --config config.yaml --max-papers "${{ inputs.max_papers }}"
-          else
-            python -m daily_paper_agent --config config.yaml
+            args+=(--max-papers "${{ inputs.max_papers }}")
           fi
+          if [ -n "${{ inputs.candidate_limit }}" ]; then
+            args+=(--candidate-limit "${{ inputs.candidate_limit }}")
+          fi
+          python -m daily_paper_agent "${args[@]}"
 
       - name: Build GitHub Pages archive
         run: python viewer/build_data.py
