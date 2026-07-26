@@ -113,6 +113,32 @@ python viewer/run_viewer.py
 
 然后打开 `http://127.0.0.1:8000`。
 
+## Codex Skill
+
+GitHub Actions 继续负责每天 08:00 的可靠定时执行。仓库内置的 `manage-recsys-papers` Skill 为 Codex 增加自然语言控制能力，可以安全预览论文、修改研究领域、在明确要求时立即推送飞书、检查去重历史、重建 Pages，以及排查工作流失败。
+
+从克隆后的仓库安装：
+
+```bash
+cp -R skills/manage-recsys-papers ~/.codex/skills/
+```
+
+Windows PowerShell：
+
+```powershell
+Copy-Item -Recurse skills\manage-recsys-papers "$HOME\.codex\skills\"
+```
+
+安装后重启 Codex，可以这样调用：
+
+```text
+使用 $manage-recsys-papers 预览今天排名前 5 的论文，不要推送。
+使用 $manage-recsys-papers 给研究领域增加多模态推荐。
+使用 $manage-recsys-papers 检查昨天失败的 GitHub Actions。
+```
+
+Skill 不会替代每天 08:00 的定时任务，而是按需操作和维护同一个论文 Agent 项目。
+
 ## License
 
 MIT

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Recsys Papers"
+  short_description: "Operate daily paper digests and Feishu delivery"
+  default_prompt: "Use $manage-recsys-papers to check my daily paper agent and run a safe preview."

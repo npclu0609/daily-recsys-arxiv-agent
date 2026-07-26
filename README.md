@@ -17,6 +17,7 @@ The default profile covers recommender systems, search and ranking, online adver
 - Author/affiliation enrichment prefers arXiv HTML and uses bounded concurrency. Slow PDF fallback is configurable and disabled by default.
 - Runs at 08:00 Asia/Shanghai through GitHub Actions and supports manual dispatch.
 - Deploys a cumulative, searchable GitHub Pages archive with date/topic filters and browser-local favorites.
+- Includes an optional Codex Skill for natural-language setup, preview, configuration, immediate delivery, and troubleshooting.
 - OpenAI-compatible LLM endpoint; the model and base URL are configurable.
 
 ## Quick Start
@@ -83,6 +84,32 @@ python viewer/run_viewer.py
 ```
 
 Then open `http://127.0.0.1:8000`.
+
+## Codex Skill
+
+GitHub Actions remains the reliable daily scheduler. The bundled `manage-recsys-papers` Skill adds a natural-language control layer for Codex: it can safely preview papers, edit research coverage, run an explicitly requested immediate Feishu push, inspect deduplication history, rebuild Pages, and troubleshoot workflows.
+
+Install it from a cloned repository:
+
+```bash
+cp -R skills/manage-recsys-papers ~/.codex/skills/
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item -Recurse skills\manage-recsys-papers "$HOME\.codex\skills\"
+```
+
+Restart Codex after installation, then invoke it explicitly with prompts such as:
+
+```text
+Use $manage-recsys-papers to preview today's top 5 papers without sending them.
+Use $manage-recsys-papers to add multimodal recommendation to my topics.
+Use $manage-recsys-papers to inspect yesterday's failed GitHub Actions run.
+```
+
+The Skill does not replace the 08:00 workflow. It operates and maintains the same agent project on demand.
 
 ## Local Run
 
