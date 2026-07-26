@@ -94,6 +94,25 @@ pytest -q
 
 不要把飞书 Webhook 或模型 API Key 写入仓库。只使用 GitHub Actions Secrets 或本地环境变量。
 
+## GitHub Pages 论文归档
+
+项目在 `viewer/` 中提供静态论文归档。每次飞书消息全部发送成功后，每日工作流会更新累计数据 `viewer/papers_data.json`，Pages 工作流随后自动部署。
+
+1. 打开 Fork 仓库的 **Settings > Pages**。
+2. 在 **Build and deployment > Source** 中选择 **GitHub Actions**。
+3. 手动运行一次 **Deploy paper archive**，也可以提交任意 `viewer/` 下的改动触发部署。
+
+访问地址为 `https://<用户名>.github.io/<仓库名>/`。页面支持全文搜索、首次上传日期筛选、领域筛选，以及只保存在当前浏览器中的收藏。只有飞书推送完整成功的论文才会进入网页归档，不会破坏原有去重逻辑。
+
+本地预览：
+
+```bash
+python viewer/build_data.py
+python viewer/run_viewer.py
+```
+
+然后打开 `http://127.0.0.1:8000`。
+
 ## License
 
 MIT

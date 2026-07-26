@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="每日推荐、搜索、广告与生成式推荐论文归档">
+  <title>Daily Recsys Papers</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="mark">DR</span><div><strong>Daily Recsys Papers</strong><span>每日优质论文归档</span></div></div>
+    <a class="github" href="https://github.com/npclu0609/daily-recsys-arxiv-agent" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
+  <main>
+    <section class="summary">
+      <div><p class="eyebrow">RESEARCH FEED</p><h1>推荐、搜索、广告与生成式推荐</h1><p>按 arXiv 首次上传时间从新到旧，自动沉淀每日推送结果。</p></div>
+      <div class="count"><strong id="paperCount">0</strong><span>篇已收录论文</span></div>
+    </section>
+    <section class="toolbar" aria-label="筛选论文">
+      <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="搜索标题、作者、摘要或机构"></label>
+      <select id="topicFilter" aria-label="按领域筛选"><option value="">全部领域</option></select>
+      <input id="dateFilter" type="date" aria-label="按上传日期筛选">
+      <label class="favoriteToggle"><input id="favoriteOnly" type="checkbox"><span>只看收藏</span></label>
+    </section>
+    <div id="resultMeta" class="resultMeta"></div>
+    <section id="paperList" class="paperList" aria-live="polite"></section>
+    <section id="emptyState" class="empty" hidden><strong>没有匹配的论文</strong><span>调整筛选条件后再试。</span></section>
+  </main>
+  <footer>数据来自 arXiv · 摘要由 AI 辅助生成，请以论文原文为准</footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

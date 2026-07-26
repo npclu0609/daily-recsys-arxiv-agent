@@ -32,11 +32,13 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: python -m daily_paper_agent --config config.yaml
 
+      - name: Build GitHub Pages archive
+        run: python viewer/build_data.py
+
       - name: Persist deduplication state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/sent_papers.json
+          git add data/sent_papers.json viewer/papers_data.json
           git diff --cached --quiet || git commit -m "chore: update sent paper history"
           git push
-

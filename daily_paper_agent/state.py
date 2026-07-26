@@ -26,7 +26,7 @@ def filter_unseen(papers: list[Paper], state: dict) -> list[Paper]:
 def mark_sent(path: Path, state: dict, papers: list[Paper]) -> None:
     timestamp = datetime.now(timezone.utc).isoformat()
     for paper in papers:
-        state["papers"][paper.arxiv_id] = {"title": paper.title, "sent_at": timestamp}
+        state["papers"][paper.arxiv_id] = {**paper.to_dict(), "sent_at": timestamp}
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temp_name = tempfile.mkstemp(prefix="sent-", suffix=".json", dir=path.parent)
     try:
@@ -36,4 +36,3 @@ def mark_sent(path: Path, state: dict, papers: list[Paper]) -> None:
     finally:
         if os.path.exists(temp_name):
             os.unlink(temp_name)
-

@@ -3,7 +3,8 @@ from datetime import datetime, timezone
 from daily_paper_agent.feishu import build_post
 from daily_paper_agent.models import Paper
 from daily_paper_agent.ranking import match_topic, select_papers
-from daily_paper_agent.state import filter_unseen
+from daily_paper_agent.state import filter_unseen, load_sent, mark_sent
+from viewer.build_data import build_data
 
 
 def paper(arxiv_id: str, published: str, score: float, topic: str = "recsys") -> Paper:
@@ -62,3 +63,27 @@ def test_feishu_content_contains_publish_time():
     rows = payload["content"]["post"]["zh_cn"]["content"]
     all_text = " ".join(node.get("text", "") for row in rows for node in row)
     assert "首次上传：2026-07-25 10:20 UTC" in all_text
+
+
+def test_sent_state_keeps_full_paper_record(tmp_path):
+    path = tmp_path / "sent.json"
+    item = paper("2607.001", "2026-07-25T10:20:00Z", 88, "LLM4Rec")
+    mark_sent(path, {"papers": {}}, [item])
+    record = load_sent(path)["papers"][item.arxiv_id]
+    assert record["summary_zh"] == item.summary_zh
+    assert record["published_at"] == item.published_at
+    assert record["quality_score"] == 88
+    assert record["sent_at"]
+
+
+def test_viewer_data_is_unique_and_newest_first(tmp_path):
+    source = tmp_path / "sent.json"
+    target = tmp_path / "papers.json"
+    source.write_text(
+        '{"papers":{"old":{"title":"Old","published_at":"2026-07-20T00:00:00Z"},'
+        '"new":{"title":"New","published_at":"2026-07-25T00:00:00Z"}}}',
+        encoding="utf-8",
+    )
+    payload = build_data(source, target)
+    assert payload["count"] == 2
+    assert [item["arxiv_id"] for item in payload["papers"]] == ["new", "old"]

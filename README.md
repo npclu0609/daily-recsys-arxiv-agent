@@ -16,6 +16,7 @@ The default profile covers recommender systems, search and ranking, online adver
 - Feishu messages are split into configurable chunks to stay within message size limits.
 - Author/affiliation enrichment prefers arXiv HTML and uses bounded concurrency. Slow PDF fallback is configurable and disabled by default.
 - Runs at 08:00 Asia/Shanghai through GitHub Actions and supports manual dispatch.
+- Deploys a cumulative, searchable GitHub Pages archive with date/topic filters and browser-local favorites.
 - OpenAI-compatible LLM endpoint; the model and base URL are configurable.
 
 ## Quick Start
@@ -63,6 +64,25 @@ Conference acceptance is a strong signal, not a hard requirement. High-quality a
 `data/sent_papers.json` stores successfully delivered arXiv IDs. The workflow filters these IDs before ranking and writes new IDs only after all Feishu messages succeed. GitHub Actions commits the updated state to the repository, so scheduled runs do not resend previously delivered papers.
 
 Keep the workflow permission **Read and write permissions** enabled under **Settings > Actions > General > Workflow permissions**.
+
+## GitHub Pages Archive
+
+The repository includes a static paper archive under `viewer/`. After every successful Feishu delivery, the daily workflow rebuilds `viewer/papers_data.json`; the Pages workflow then deploys it automatically.
+
+1. Open **Settings > Pages** in your fork.
+2. Under **Build and deployment > Source**, select **GitHub Actions**.
+3. Run **Deploy paper archive** once, or push a change under `viewer/`.
+
+Your site will be available at `https://<username>.github.io/<repository>/`. It supports full-text search, upload-date and topic filters, and favorites stored only in the current browser. The archive never changes delivery semantics: an item is added only after all Feishu messages succeed.
+
+To preview locally:
+
+```bash
+python viewer/build_data.py
+python viewer/run_viewer.py
+```
+
+Then open `http://127.0.0.1:8000`.
 
 ## Local Run
 
