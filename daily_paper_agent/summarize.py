@@ -7,7 +7,7 @@ import requests
 from .models import Paper
 
 
-SYSTEM_PROMPT = """You are a senior recommender-system researcher. Return strict JSON with keys affiliations, summary_zh, practical_value_zh, quality_signal_zh. affiliations must be a JSON string array extracted only from the supplied first-page text. Write concise Chinese. Distinguish confirmed venue acceptance from an arXiv preprint. Do not invent affiliations, venues, results, or code availability."""
+SYSTEM_PROMPT = """You are a senior recommender-system researcher. Return strict JSON with keys affiliations, affiliations_zh, subtopics_zh, model_name, summary_zh, practical_value_zh, quality_signal_zh. affiliations and affiliations_zh must be parallel JSON string arrays extracted only from the supplied first-page text; translate institution names into standard Chinese names while keeping brands without an established translation unchanged. subtopics_zh must contain 1-4 concise technical tags such as 生成式推荐, 因果召回, 长序列, 广告精排, 语义 ID. model_name is the explicit method/model acronym from the paper, or an empty string when none exists. Write concise Chinese. Distinguish confirmed venue acceptance from an arXiv preprint. Do not invent affiliations, venues, results, model names, or code availability."""
 
 
 def summarize_paper(paper: Paper, config: dict, first_pages: str) -> None:
@@ -26,6 +26,11 @@ def summarize_paper(paper: Paper, config: dict, first_pages: str) -> None:
         "detected_affiliations": paper.affiliations,
         "first_pages_excerpt": first_pages[:7000],
         "quality_score": paper.quality_score,
+        "topic_zh": paper.topic_zh,
+        "detected_model_name": paper.model_name,
+        "verified_venue": paper.venue_name,
+        "verified_venue_status_zh": paper.venue_status_zh,
+        "verified_ccf_rank": paper.ccf_rank,
     }
     payload = {
         "model": llm["model"],
@@ -49,6 +54,13 @@ def summarize_paper(paper: Paper, config: dict, first_pages: str) -> None:
     extracted_affiliations = result.get("affiliations", [])
     if isinstance(extracted_affiliations, list):
         paper.affiliations = list(dict.fromkeys(paper.affiliations + [str(item).strip() for item in extracted_affiliations if str(item).strip()]))[:6]
+    translated_affiliations = result.get("affiliations_zh", [])
+    if isinstance(translated_affiliations, list):
+        paper.affiliations_zh = [str(item).strip() for item in translated_affiliations if str(item).strip()][:6]
+    subtopics = result.get("subtopics_zh", [])
+    if isinstance(subtopics, list):
+        paper.subtopics_zh = [str(item).strip() for item in subtopics if str(item).strip()][:4]
+    paper.model_name = str(result.get("model_name", "")).strip() or paper.model_name
     paper.summary_zh = result["summary_zh"].strip()
     paper.practical_value_zh = result["practical_value_zh"].strip()
     paper.quality_signal_zh = result["quality_signal_zh"].strip()

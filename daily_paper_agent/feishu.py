@@ -11,22 +11,34 @@ def _date(value: str) -> str:
     return datetime.fromisoformat(value.replace("Z", "+00:00")).strftime("%Y-%m-%d %H:%M UTC")
 
 
+def _venue_label(paper: Paper) -> str:
+    if paper.ccf_rank in {"A", "B", "C"}:
+        return f"{paper.venue_name}（CCF {paper.ccf_rank}，{paper.venue_status_zh}）"
+    if paper.ccf_rank == "N":
+        return f"{paper.venue_name}（非 CCF 推荐目录，{paper.venue_status_zh}）"
+    return "arXiv 预印本"
+
+
 def build_post(papers: list[Paper], part: int, total_parts: int) -> dict:
     rows: list[list[dict]] = []
     for index, paper in enumerate(papers, 1):
-        venue = paper.comment or "arXiv 预印本（会议状态未确认）"
-        affiliations = "; ".join(paper.affiliations) or "未可靠提取"
+        affiliations = " × ".join(paper.affiliations_zh or paper.affiliations) or "未可靠提取"
+        tags = " ".join(f"【{tag}】" for tag in paper.subtopics_zh)
         rows.extend(
             [
                 [{"tag": "a", "text": f"{index}. {paper.title}", "href": paper.abs_url}],
-                [{"tag": "text", "text": f"首次上传：{_date(paper.published_at)} | 最近更新：{_date(paper.updated_at)}"}],
-                [{"tag": "text", "text": f"会议/状态：{venue}"}],
+                [{"tag": "text", "text": f"{_venue_label(paper)}｜{affiliations}｜{tags}"}],
+                [{"tag": "text", "text": f"首次上传：{_date(paper.published_at)}｜最近更新：{_date(paper.updated_at)}"}],
+            ]
+        )
+        if paper.model_name:
+            rows.append([{"tag": "text", "text": f"模型/方法：{paper.model_name}"}])
+        rows.extend(
+            [
                 [{"tag": "text", "text": f"作者：{', '.join(paper.authors[:8])}"}],
-                [{"tag": "text", "text": f"单位：{affiliations}"}],
-                [{"tag": "text", "text": f"方向：{paper.topic} | 质量分：{paper.quality_score:.0f}/100"}],
                 [{"tag": "text", "text": f"中文总结：{paper.summary_zh}"}],
-                [{"tag": "text", "text": f"实践价值：{paper.practical_value_zh}"}],
-                [{"tag": "text", "text": f"入选依据：{paper.quality_signal_zh}"}],
+                [{"tag": "text", "text": f"为什么值得读：{paper.practical_value_zh}"}],
+                [{"tag": "text", "text": f"入选依据：{paper.quality_signal_zh}｜质量分 {paper.quality_score:.0f}/100"}],
                 [{"tag": "text", "text": " "}],
             ]
         )

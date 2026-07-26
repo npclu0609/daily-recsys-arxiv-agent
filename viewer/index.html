@@ -15,13 +15,14 @@
   </header>
   <main>
     <section class="summary">
-      <div><p class="eyebrow">RESEARCH FEED</p><h1>推荐、搜索、广告与生成式推荐</h1><p>按 arXiv 首次上传时间从新到旧，自动沉淀每日推送结果。</p></div>
+      <div><p class="eyebrow">RESEARCH FEED</p><h1>推荐、搜索、广告与生成式推荐</h1><p>自动沉淀每日推送结果，可按上传时间与研究领域浏览。</p></div>
       <div class="count"><strong id="paperCount">0</strong><span>篇已收录论文</span></div>
     </section>
     <section class="toolbar" aria-label="筛选论文">
       <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="搜索标题、作者、摘要或机构"></label>
       <select id="topicFilter" aria-label="按领域筛选"><option value="">全部领域</option></select>
       <input id="dateFilter" type="date" aria-label="按上传日期筛选">
+      <select id="sortOrder" aria-label="按上传时间排序"><option value="desc">时间降序</option><option value="asc">时间升序</option></select>
       <label class="favoriteToggle"><input id="favoriteOnly" type="checkbox"><span>只看收藏</span></label>
     </section>
     <div id="resultMeta" class="resultMeta"></div>

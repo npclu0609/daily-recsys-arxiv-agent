@@ -29,8 +29,22 @@
       "quality_score": 53.0,
       "summary_zh": "本文提出BARGE，通过三项轻量模块解决生成式推荐中的结构缺失问题：ICA恢复物品级别结构，HPR和DPD从两个角度抑制层级语义漂移。在公开基准和大规模离线测试上表现优异，并在腾讯平台上线AB测试取得显著提升。",
       "practical_value_zh": "在腾讯平台上线AB测试，点击率提升0.60%，点击独立访客提升1.34%，总阅读时长提升1.70%，证明其在工业级推荐中的实用价值。",
-      "quality_signal_zh": "该研究为arXiv预印本，未标明会议接收，基于公开基准和腾讯平台实验验证，代码未提及开源。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "quality_signal_zh": "arXiv 元数据未确认会议状态；按相关性、实验与工业信号综合入选。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "腾讯"
+      ],
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "推荐系统",
+        "生成式推荐",
+        "语义 ID",
+        "序列推荐"
+      ],
+      "model_name": "BARGE",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": ""
     },
     {
       "arxiv_id": "2607.20873",
@@ -58,8 +72,21 @@
       "quality_score": 54.5,
       "summary_zh": "提出LO-FAR，一种轻量级CPU-only局部特征排序方法，用于工业广告推荐中稀疏ID-list特征的选择。通过独立预测信号而非GPU重训练，在约两小时内完成排名，且与现有方法相比在CTR/CVR任务上保持竞争力。",
       "practical_value_zh": "为工业推荐系统提供了一种低成本、可重复部署的特征排序方案，适合在计算预算和迭代周期受限的场景下替代复杂的交互式方法。",
-      "quality_signal_zh": "论文已被ACM RecSys 2026接收（arXiv预印本），基于生产规模数据集（百万级交互、475个稀疏特征）验证，结果可信。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "quality_signal_zh": "arXiv 元数据未确认会议状态；按相关性、实验与工业信号综合入选。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "Meta（脸书母公司）"
+      ],
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "推荐系统",
+        "广告精排",
+        "特征交互"
+      ],
+      "model_name": "LO-FAR",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": ""
     },
     {
       "arxiv_id": "2607.19987",
@@ -94,7 +121,24 @@
       "summary_zh": "本文提出UniRank，一个针对统一序列建模和特征交互的排名模型的开源基准。基于五个大规模公开数据集，对15种代表性模型进行实验，并提供PyTorch工具包。该论文目前为arXiv预印本。",
       "practical_value_zh": "UniRank提供了可复现的排名模型比较框架，降低了学术研究与工业部署之间的门槛。其公开代码和数据有助于研究者、从业者快速验证和部署先进模型。",
       "quality_signal_zh": "该论文为基准测试工作，提供了公开代码和数据，并系统地评估了多种统一排名模型。其开源工具包有助于促进该领域的可重复研究。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "Meta（脸书母公司）",
+        "腾讯",
+        "华为",
+        "中国科学技术大学",
+        "安徽大学"
+      ],
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "推荐系统",
+        "长序列",
+        "特征交互"
+      ],
+      "model_name": "UniRank",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": ""
     },
     {
       "arxiv_id": "2607.19802",
@@ -128,7 +172,23 @@
       "summary_zh": "提出零观测用户激活问题，即用户长期无交互后回归。设计DeltaGate模块，根据时间间隔和用户表征动态调整输出，冻结骨干网络仅增加少量参数，在三个Amazon数据集上显著提升Hit@10。",
       "practical_value_zh": "帮助推荐系统在用户长时间离线后无需重训模型即可有效激活，降低部署成本，提升长尾用户召回率。",
       "quality_signal_zh": "被RecSys 2026录用，实验设计严谨，代码开源，质量可靠。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "亚马逊",
+        "华为",
+        "京东",
+        "复旦大学"
+      ],
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "推荐系统",
+        "序列推荐",
+        "用户召回"
+      ],
+      "model_name": "DeltaGate",
+      "venue_name": "RecSys",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "B"
     },
     {
       "arxiv_id": "2607.19739",
@@ -162,7 +222,22 @@
       "summary_zh": "提出PRTA框架，利用LLM作为规划器与多个推荐工具交互，通过架构设计解决幻觉和上下文长度限制，在三个数据集上表现优越。",
       "practical_value_zh": "将LLM推理与传统推荐模型结合，无需微调即可实现全排序推荐，具有实际应用价值。",
       "quality_signal_zh": "论文被RecSys'26接收，进行了多数据集实验，代码已开源。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "微软",
+        "伊利诺伊大学芝加哥分校",
+        "北京航空航天大学",
+        "北航杭州创新研究院"
+      ],
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "推荐系统",
+        "LLM Agent 推荐"
+      ],
+      "model_name": "PRTA",
+      "venue_name": "RecSys",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "B"
     },
     {
       "arxiv_id": "2607.18796",
@@ -202,7 +277,25 @@
       "summary_zh": "提出TSGR框架，通过查询感知并行SID（QP-SID）和值感知排序模块（VRM），在检索中融入业务价值信号。离线实验HR@1000提升9.16%，线上A/B测试IPV+0.43%、交易量+1.12%、GMV+1.64%。",
       "practical_value_zh": "已在淘宝搜索全量部署，有效提升商业指标，降低预排序阶段开销。",
       "quality_signal_zh": "本文为arXiv预印本（2026年），尚未经同行评审。离线实验与在线A/B测试均验证了有效性。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "阿里巴巴",
+        "淘宝",
+        "腾讯",
+        "浙江大学",
+        "阿里巴巴淘天集团"
+      ],
+      "topic_zh": "搜索与检索",
+      "subtopics_zh": [
+        "搜索与检索",
+        "生成式检索",
+        "语义 ID",
+        "搜索精排"
+      ],
+      "model_name": "TSGR",
+      "venue_name": "arXiv",
+      "venue_status_zh": "预印本",
+      "ccf_rank": ""
     },
     {
       "arxiv_id": "2607.18786",
@@ -229,7 +322,21 @@
       "summary_zh": "提出DDMSR框架，针对多模态序列推荐中的特征级冗余和序列级随机噪声，通过图拉普拉斯平滑进行特征去噪，并利用频域滤波进行序列去噪，同时引入多模态对比对齐。实验表明该方法优于现有基线。",
       "practical_value_zh": "该方法可提升推荐系统在真实场景中的鲁棒性，有效处理预训练特征与推荐意图不匹配以及误点击等噪声问题，适用于电商、内容推荐等实际应用。",
       "quality_signal_zh": "论文已被ACM MM 2026录用（12页），代码开源在GitHub（https://github.com/jluo00/DDMSR）。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "中国科学技术大学"
+      ],
+      "topic_zh": "推荐系统",
+      "subtopics_zh": [
+        "推荐系统",
+        "序列推荐",
+        "多模态推荐",
+        "广告精排"
+      ],
+      "model_name": "DDMSR",
+      "venue_name": "ACM MM",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "A"
     },
     {
       "arxiv_id": "2607.18600",
@@ -261,8 +368,23 @@
       "quality_score": 51.5,
       "summary_zh": "提出拓扑感知的标记化方法（TopoTok），通过多层级蒸馏保留物品语义空间中的拓扑结构，缓解生成式推荐中离散标记化导致的拓扑失真问题，在三个基准数据集上取得显著提升。",
       "practical_value_zh": "提升生成式推荐的准确率，尤其在物品相似性保留方面，可应用于实际推荐系统改善召回效果。",
-      "quality_signal_zh": "被顶级会议RecSys 2026接收，实验显示Recall@5提升高达9.42%，代码公开（GitHub）。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "quality_signal_zh": "被CCF B 类会议RecSys 2026接收，实验显示Recall@5提升高达9.42%，代码公开（GitHub）。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "Meta（脸书母公司）",
+        "伊利诺伊大学",
+        "伊利诺伊大学厄巴纳-香槟分校"
+      ],
+      "topic_zh": "生成式推荐",
+      "subtopics_zh": [
+        "生成式推荐",
+        "序列推荐",
+        "Tokenization"
+      ],
+      "model_name": "TopoTok",
+      "venue_name": "RecSys",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "B"
     },
     {
       "arxiv_id": "2607.17473",
@@ -302,7 +424,22 @@
       "summary_zh": "提出RAMP框架，通过掩码和对齐路径提升隐私约束下的CTR/CVR预测精度，在缺乏个性化特征时优于现有方法，已获ICTIR '26接收。",
       "practical_value_zh": "在广告推荐中应对隐私法规限制，允许在用户特征缺失时保持较高预测性能，具备工业部署潜力。",
       "quality_signal_zh": "论文被ICTIR接收，代码开源，实验充分，但质量评分47/100，属中等水平。",
-      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+      "sent_at": "2026-07-26T06:24:12.714207+00:00",
+      "affiliations_zh": [
+        "华为",
+        "都柏林大学",
+        "华为爱尔兰研究中心"
+      ],
+      "topic_zh": "广告算法",
+      "subtopics_zh": [
+        "广告算法",
+        "广告精排",
+        "隐私推荐"
+      ],
+      "model_name": "RAMP",
+      "venue_name": "ICTIR",
+      "venue_status_zh": "已录用",
+      "ccf_rank": "N"
     }
   ]
 }

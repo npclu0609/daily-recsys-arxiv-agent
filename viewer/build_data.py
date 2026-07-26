@@ -2,9 +2,13 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from daily_paper_agent.metadata import enrich_record
 SOURCE = ROOT / "data" / "sent_papers.json"
 TARGET = Path(__file__).with_name("papers_data.json")
 
@@ -15,6 +19,7 @@ def build_data(source: Path = SOURCE, target: Path = TARGET) -> dict:
     for arxiv_id, record in state.get("papers", {}).items():
         item = dict(record)
         item.setdefault("arxiv_id", arxiv_id)
+        item = enrich_record(item)
         # Old state entries remain valid for deduplication and degrade gracefully in the viewer.
         item.setdefault("title", arxiv_id)
         papers.append(item)

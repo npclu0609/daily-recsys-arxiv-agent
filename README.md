@@ -12,6 +12,8 @@ The default profile covers recommender systems, search and ranking, online adver
 - Composite quality score based on relevance, venue evidence, institution signals, recency, reproducibility, and industrial evidence.
 - Up to 20 papers per run, displayed from newest to oldest by arXiv publication time.
 - Includes title, link, publication time, latest update time, status/venue, authors, affiliations, topic, Chinese summary, practical value, and selection rationale.
+- Translates primary topics and affiliations into Chinese, and adds technical subtopic tags plus method/model names when explicitly available.
+- Labels confirmed venues with CCF A/B/C ranks from the seventh-edition CCF catalog; unconfirmed papers remain marked as arXiv preprints.
 - Persistent arXiv-ID deduplication. State is updated only after every Feishu chunk succeeds.
 - Feishu messages are split into configurable chunks to stay within message size limits.
 - Author/affiliation enrichment prefers arXiv HTML and uses bounded concurrency. Slow PDF fallback is configurable and disabled by default.
@@ -74,7 +76,7 @@ The repository includes a static paper archive under `viewer/`. After every succ
 2. Under **Build and deployment > Source**, select **GitHub Actions**.
 3. Run **Deploy paper archive** once, or push a change under `viewer/`.
 
-Your site will be available at `https://<username>.github.io/<repository>/`. It supports full-text search, upload-date and topic filters, and favorites stored only in the current browser. The archive never changes delivery semantics: an item is added only after all Feishu messages succeed.
+Your site will be available at `https://<username>.github.io/<repository>/`. It supports full-text search, upload-date and detailed-domain filters, ascending/descending upload-time sorting, and favorites stored only in the current browser. The archive never changes delivery semantics: an item is added only after all Feishu messages succeed.
 
 To preview locally:
 

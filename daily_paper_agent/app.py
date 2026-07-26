@@ -8,6 +8,7 @@ from pathlib import Path
 from .arxiv import extract_first_pages_text, fetch_papers, in_lookback
 from .config import load_config
 from .feishu import send_papers
+from .metadata import enrich_paper_metadata
 from .ranking import enrich_quality_score, preliminary_score, select_papers
 from .state import filter_unseen, load_sent, mark_sent
 from .summarize import summarize_paper
@@ -70,7 +71,9 @@ def run(
 
     selected = select_papers(candidates, config)
     for paper in selected:
+        enrich_paper_metadata(paper)
         summarize_paper(paper, config, page_text[paper.arxiv_id])
+        enrich_paper_metadata(paper)
 
     latest_path.parent.mkdir(parents=True, exist_ok=True)
     latest_path.write_text(
