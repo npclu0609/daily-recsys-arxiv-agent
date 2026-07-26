@@ -41,7 +41,9 @@ def summarize_paper(paper: Paper, config: dict, first_pages: str) -> None:
     if response.status_code == 400:
         payload.pop("response_format")
         response = requests.post(url, headers=headers, json=payload, timeout=llm["timeout_seconds"])
-    response.raise_for_status()
+    if not response.ok:
+        detail = response.text[:500].replace("\n", " ")
+        raise RuntimeError(f"LLM request failed with HTTP {response.status_code}: {detail}")
     content = response.json()["choices"][0]["message"]["content"]
     result = json.loads(content)
     extracted_affiliations = result.get("affiliations", [])
