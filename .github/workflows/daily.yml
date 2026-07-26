@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 0 * * *" # 08:00 Asia/Shanghai
   workflow_dispatch:
+    inputs:
+      max_papers:
+        description: "Maximum number of unseen papers to send"
+        required: false
+        default: "20"
 
 permissions:
   contents: write
@@ -30,7 +35,12 @@ jobs:
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-        run: python -m daily_paper_agent --config config.yaml
+        run: |
+          if [ -n "${{ inputs.max_papers }}" ]; then
+            python -m daily_paper_agent --config config.yaml --max-papers "${{ inputs.max_papers }}"
+          else
+            python -m daily_paper_agent --config config.yaml
+          fi
 
       - name: Build GitHub Pages archive
         run: python viewer/build_data.py
