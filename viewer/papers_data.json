@@ -1,4 +1,308 @@
 {
-  "count": 0,
-  "papers": []
+  "count": 9,
+  "papers": [
+    {
+      "arxiv_id": "2607.21028",
+      "title": "Bridging the Structural Gap: Adapting Autoregressive Generation for Recommendation",
+      "abstract": "Generative Recommendation (GR) has emerged as a new paradigm for sequential recommendation, in which a representative line of work encodes items into hierarchical semantic IDs via residual quantization and predicts the IDs token by token. However, this generative formulation still exhibits structural gaps with respect to the recommendation task: flattening multi-token IDs into a single sequence destroys item-level structure, and the inconsistency between training and inference over a hierarchical codebook gives rise to semantic drift. To bridge these two gaps, we propose BARGE, which employs Item Context-Aware Attention (ICA) to restore item-level structure during encoding, and Hierarchical Path Reranking (HPR) together with Dual-Path Decoding (DPD) to suppress semantic drift from two complementary angles during decoding. Extensive experiments and analytical studies on public benchmarks and a large-scale offline test demonstrate that BARGE achieves superior recommendation performance. An online A/B test on a Tencent platform yields improvements of 0.60% in click-through rate, 1.34% in click unique visitors, and 1.70% in total reading time, confirming the practical value of BARGE in industrial-scale recommendation.",
+      "authors": [
+        "Junchao Zeng",
+        "Junzhang Zhu",
+        "Junyang Chen",
+        "Yudong Li",
+        "Wei Liu",
+        "Chengxiang Zhuo",
+        "Zang Li"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-23T08:11:57Z",
+      "updated_at": "2026-07-23T08:11:57Z",
+      "abs_url": "https://arxiv.org/abs/2607.21028",
+      "pdf_url": "https://arxiv.org/pdf/2607.21028",
+      "comment": "14 pages, 15 figures",
+      "affiliations": [
+        "Tencent"
+      ],
+      "topic": "recommender_systems",
+      "quality_score": 53.0,
+      "summary_zh": "本文提出BARGE，通过三项轻量模块解决生成式推荐中的结构缺失问题：ICA恢复物品级别结构，HPR和DPD从两个角度抑制层级语义漂移。在公开基准和大规模离线测试上表现优异，并在腾讯平台上线AB测试取得显著提升。",
+      "practical_value_zh": "在腾讯平台上线AB测试，点击率提升0.60%，点击独立访客提升1.34%，总阅读时长提升1.70%，证明其在工业级推荐中的实用价值。",
+      "quality_signal_zh": "该研究为arXiv预印本，未标明会议接收，基于公开基准和腾讯平台实验验证，代码未提及开源。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.20873",
+      "title": "LO-FAR: A Cost-Aware Local Filter for Sparse Feature Ranking in Industrial Ad Recommendation",
+      "abstract": "Industrial ad recommendation models rely heavily on sparse, high-cardinality ID-list features that encode user histories and contextual identifiers. Each is backed by a dedicated embedding table, so these features dominate storage, training, and serving cost and must be revisited as traffic and downstream models evolve. Therefore, sparse feature ranking is not just an offline modeling problem but also a recurrent systems decision limited by compute budgets and iteration cadence. We present Localized Feature Ranking (LO-FAR), a CPU-only, model-agnostic workflow that ranks each candidate feature from its stand-alone held-out predictive signal using lightweight local estimators rather than the GPU-bound retraining loops of permutation- and stochastic-gate-based methods. On a production dataset of more than one million logged interactions and 475 sparse ID-list features, LO-FAR completes ranking in approximately two CPU-hours and preserves downstream Normalized Entropy gains on CTR and CVR tasks that are competitive with shuffle-based importance, Binary Stochastic Neurons, and a coverage-based heuristic across budgets of 100--400 retained features. The contribution is a deployable workflow showing that, when cost and turnaround constraints are binding, a simple local filter can be a practical production choice over heavier interaction-aware alternatives.",
+      "authors": [
+        "Egemen Erbayat",
+        "Luis Duque",
+        "Sohini Roychowdhury",
+        "Mohammad Amin",
+        "Srihari Reddy"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-23T02:52:41Z",
+      "updated_at": "2026-07-23T02:52:41Z",
+      "abs_url": "https://arxiv.org/abs/2607.20873",
+      "pdf_url": "https://arxiv.org/pdf/2607.20873",
+      "comment": "",
+      "affiliations": [
+        "Meta"
+      ],
+      "topic": "recommender_systems",
+      "quality_score": 54.5,
+      "summary_zh": "提出LO-FAR，一种轻量级CPU-only局部特征排序方法，用于工业广告推荐中稀疏ID-list特征的选择。通过独立预测信号而非GPU重训练，在约两小时内完成排名，且与现有方法相比在CTR/CVR任务上保持竞争力。",
+      "practical_value_zh": "为工业推荐系统提供了一种低成本、可重复部署的特征排序方案，适合在计算预算和迭代周期受限的场景下替代复杂的交互式方法。",
+      "quality_signal_zh": "论文已被ACM RecSys 2026接收（arXiv预印本），基于生产规模数据集（百万级交互、475个稀疏特征）验证，结果可信。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.19987",
+      "title": "UniRank: Benchmarking Ranking Models for Unified Sequential Modeling and Feature Interaction",
+      "abstract": "Ranking is a core stage in online advertising and recommender systems. Modern ranking models increasingly unify sequential modeling and feature interaction, yet many advances rely on proprietary data, closed implementations, and large-scale industrial infrastructure. This setting limits reproducible comparison and hinders academic study of scaling laws, long-sequence modeling, and multi-task ranking. To address these limitations, this paper proposes UniRank, an open benchmark for ranking models that unify sequential modeling and feature interaction. UniRank uses chronological pointwise autoregressive supervision, standardizes evaluation across feedback tasks, and provides a PyTorch toolkit with Distributed Data Parallel training, operator optimization, mixed-precision training, attention optimization, and other efficiency techniques that reduce hardware requirements. We benchmark 15 representative unified ranking models on five large-scale public datasets from short-video, advertising, and e-commerce platforms, with the largest dataset containing over 700 million instances and the longest behavior sequence exceeding 10^5 interactions. UniRank provides a reproducible basis for comparing unified ranking models, studying scaling laws under limited compute, and narrowing the gap between academic and industrial ranking research. We believe UniRank benefits researchers, practitioners, and beginners through reproducible experiments, production-oriented evaluation, and accessible implementations. Code and data are available at https://github.com/salmon1802/UniRank.",
+      "authors": [
+        "Honghao Li",
+        "Xianquan Wang",
+        "Zibin Zhang",
+        "Yi Zhang",
+        "Kangyi Lin",
+        "Yiwen Zhang"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-22T10:20:40Z",
+      "updated_at": "2026-07-23T07:54:02Z",
+      "abs_url": "https://arxiv.org/abs/2607.19987",
+      "pdf_url": "https://arxiv.org/pdf/2607.19987",
+      "comment": "11 pages, 6 figures, and 7 tables. Code and data: https://github.com/salmon1802/UniRank",
+      "affiliations": [
+        "Meta",
+        "Tencent",
+        "Huawei",
+        "University of Science and Technology of China",
+        "Anhui University",
+        "Tencent Inc."
+      ],
+      "topic": "recommender_systems",
+      "quality_score": 49.5,
+      "summary_zh": "本文提出UniRank，一个针对统一序列建模和特征交互的排名模型的开源基准。基于五个大规模公开数据集，对15种代表性模型进行实验，并提供PyTorch工具包。该论文目前为arXiv预印本。",
+      "practical_value_zh": "UniRank提供了可复现的排名模型比较框架，降低了学术研究与工业部署之间的门槛。其公开代码和数据有助于研究者、从业者快速验证和部署先进模型。",
+      "quality_signal_zh": "该论文为基准测试工作，提供了公开代码和数据，并系统地评估了多种统一排名模型。其开源工具包有助于促进该领域的可重复研究。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.19802",
+      "title": "Zero-Observation User Reactivation with Gap-Driven Dimensional Gating",
+      "abstract": "Sequential recommendation (SR) models capture continuously observed behavior, but a returning user may have no interactions for months or years. We define this setting as Zero-Observation Reactivation: the user has a pre-gap history, while the platform observes no behavioral signals during a macro-gap Delta t. Under a chronologically aligned Gap-Synthesize Protocol on three Amazon datasets (Video Games, CDs & Vinyl, and Movies & TV), Hit@10 decreases monotonically across the evaluated gap buckets and reaches its lowest level beyond one year. The pattern appears across recurrent, unidirectional, and bidirectional SR backbones. We propose DeltaGate, a lightweight output-layer plugin that keeps the backbone frozen and routes each representation dimension between the personalized history and a learned, zero-initialized global prior. The gate is conditioned jointly on Delta t and the personalized representation. In a controlled diagnostic, we hold the personalized representation fixed and vary Delta t to isolate the trained gate's response to the gap input. In the >365d Video Games bucket, DG-SASRec reaches 0.047 Hit@10 versus 0.031 for SASRec, while DG-BERT4Rec reaches 0.046 versus 0.025 for BERT4Rec, with 66K trainable parameters (2--4% overhead). End-to-end retraining attains higher absolute accuracy but changes the backbone embeddings; the frozen plugin preserves zero backbone drift, uses about 40x fewer trainable parameters, and retains observable dimension-wise routing. The source code is available at https://github.com/jdding/DeltaGate.",
+      "authors": [
+        "Jiandong Ding",
+        "Tianying Liu",
+        "Fuyuan Liu",
+        "Huijie Qin",
+        "Tiandeng Wu"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.LG"
+      ],
+      "published_at": "2026-07-22T06:32:34Z",
+      "updated_at": "2026-07-22T06:32:34Z",
+      "abs_url": "https://arxiv.org/abs/2607.19802",
+      "pdf_url": "https://arxiv.org/pdf/2607.19802",
+      "comment": "Accepted at the 20th ACM Conference on Recommender Systems (RecSys 2026)",
+      "affiliations": [
+        "Amazon",
+        "Huawei",
+        "JD",
+        "Fudan University",
+        "Huawei Technologies"
+      ],
+      "topic": "recommender_systems",
+      "quality_score": 57.5,
+      "summary_zh": "提出零观测用户激活问题，即用户长期无交互后回归。设计DeltaGate模块，根据时间间隔和用户表征动态调整输出，冻结骨干网络仅增加少量参数，在三个Amazon数据集上显著提升Hit@10。",
+      "practical_value_zh": "帮助推荐系统在用户长时间离线后无需重训模型即可有效激活，降低部署成本，提升长尾用户召回率。",
+      "quality_signal_zh": "被RecSys 2026录用，实验设计严谨，代码开源，质量可靠。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.19739",
+      "title": "Personalized Recommendation Tool Learning via Autonomous Language Agents",
+      "abstract": "Although large language models (LLMs) have recently gained traction in recommender systems due to their strong reasoning capabilities and extensive world knowledge, previous LLM-based agents suffer from hallucination and context-length limitations, and thus are not suitable for full-ranking recommendation tasks. To circumvent these limitations through architectural design rather than modifying the LLM itself, we propose an agent-based recommendation framework, memory-based $\\textbf{P}$ersonalized $\\textbf{R}$ecommendation $\\textbf{T}$ool learning via autonomous language $\\textbf{A}$gents (PRTA), in which an LLM acts as a central planner interacting with multiple recommendation models as tools. The LLM-based agent is responsible for high-level reasoning and personalized tool selection, while traditional recommendation models perform full-ranking scoring, leveraging their scalability in modeling behavioral patterns. To support personalized tool selection, we design reflection mechanisms that enable the agent to evaluate and compare tools for each user based on user profiles and candidate ranked lists. Extensive experiments across three public datasets demonstrate the superiority of \\modelname over traditional recommendation and LLM-based baselines in improving full-ranking recommendation performance.",
+      "authors": [
+        "Mingdai Yang",
+        "Zhiwei Liu",
+        "Weizhi Zhang",
+        "Yibo Wang",
+        "Hao Peng",
+        "Philip Yu"
+      ],
+      "categories": [
+        "cs.IR",
+        "cs.AI"
+      ],
+      "published_at": "2026-07-22T04:10:41Z",
+      "updated_at": "2026-07-22T04:10:41Z",
+      "abs_url": "https://arxiv.org/abs/2607.19739",
+      "pdf_url": "https://arxiv.org/pdf/2607.19739",
+      "comment": "6 pages. Accepted by RecSys'26",
+      "affiliations": [
+        "Microsoft",
+        "Univ. of Illinois Chicago",
+        "Beihang University",
+        "Hangzhou Innovation Institute of BUAA"
+      ],
+      "topic": "recommender_systems",
+      "quality_score": 50.0,
+      "summary_zh": "提出PRTA框架，利用LLM作为规划器与多个推荐工具交互，通过架构设计解决幻觉和上下文长度限制，在三个数据集上表现优越。",
+      "practical_value_zh": "将LLM推理与传统推荐模型结合，无需微调即可实现全排序推荐，具有实际应用价值。",
+      "quality_signal_zh": "论文被RecSys'26接收，进行了多数据集实验，代码已开源。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.18796",
+      "title": "TSGR: Taobao Search Generative Retrieval",
+      "abstract": "Generative retrieval (GR) has demonstrated strong promise for industrial e-commerce search by training a single autoregressive model to directly generate the Semantic IDs (SIDs) of target items. However, existing GR systems are primarily optimized for semantic matching and remain insensitive to item business value: SID construction is value-unaware, and candidates are ranked without access to item side-info. Consequently, high-value items are often missed or deprioritized at the retrieval stage, limiting downstream business impact. This limitation is particularly critical in industrial settings such as Taobao Search, where business objectives are central to system design. To address this, we propose $\\textbf{T}$aobao $\\textbf{S}$earch $\\textbf{G}$enerative $\\textbf{R}$etrieval ($\\textbf{TSGR}$), a unified generative retrieval framework that incorporates value awareness into both item representation and candidate ranking. 1) For item representation, TSGR introduces $\\textbf{Query-aware Parallel SID (QP-SID)}$, which encodes query-conditioned value orderings into the SID construction by building parallel codebooks derived from query-item statistics, so that higher-value and query-relevant items are assigned better token indices. 2) For candidate ranking, we introduce a $\\textbf{Value-aware Ranking Module (VRM)}$ that is built upon and jointly optimized with the GR, enabling a single model to seamlessly serve as both retriever and pre-ranker without a dedicated pre-ranking stage. A progressive training pipeline further aligns the model with semantic relevance, user preferences, and business objectives. Offline experiments show that TSGR achieves a 9.16\\% improvement in HR@1000, and online A/B tests further validate its effectiveness, yielding gains of +0.43\\% in IPV, +1.12\\% in Transaction Count, and +1.64\\% in GMV. TSGR has been fully deployed in production.",
+      "authors": [
+        "Tianyu Zhan",
+        "Gui Ling",
+        "Tong Xiong",
+        "Kunhai Lin",
+        "Yang Wang",
+        "Kaixuan Zhang",
+        "Zhihong Chen",
+        "Yuliang Yan",
+        "Dan Ou",
+        "Shengyu Zhang",
+        "Haihong Tang",
+        "Bo Zheng"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-21T07:17:43Z",
+      "updated_at": "2026-07-22T08:19:23Z",
+      "abs_url": "https://arxiv.org/abs/2607.18796",
+      "pdf_url": "https://arxiv.org/pdf/2607.18796",
+      "comment": "",
+      "affiliations": [
+        "Alibaba",
+        "Taobao",
+        "Tencent",
+        "Zhejiang University",
+        "Taobao & Tmall Group of Alibaba"
+      ],
+      "topic": "search_and_retrieval",
+      "quality_score": 56.0,
+      "summary_zh": "提出TSGR框架，通过查询感知并行SID（QP-SID）和值感知排序模块（VRM），在检索中融入业务价值信号。离线实验HR@1000提升9.16%，线上A/B测试IPV+0.43%、交易量+1.12%、GMV+1.64%。",
+      "practical_value_zh": "已在淘宝搜索全量部署，有效提升商业指标，降低预排序阶段开销。",
+      "quality_signal_zh": "本文为arXiv预印本（2026年），尚未经同行评审。离线实验与在线A/B测试均验证了有效性。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.18786",
+      "title": "Beyond Noisy Signals: Dual-Level Denoising for Multi-modal Sequential Recommendation",
+      "abstract": "Multi-modal Sequential Recommendation (SR) incorporates rich side information (e.g., textual and visual features) to enhance dynamic user preference modeling. However, existing frameworks inevitably suffer from a \\textbf{Dual-Noise Dilemma}: (1) \\textit{Feature-level redundancy} stemming from the semantic gap between generic pre-trained representations and fine-grained recommendation intent; and (2) \\textit{Sequence-level stochasticity} induced by spurious interactions such as accidental clicks. To break this bottleneck, we propose \\textbf{DDMSR}, a novel \\textbf{D}ual-level \\textbf{D}enoising \\textbf{M}ulti-modal \\textbf{S}equential \\textbf{R}ecommendation framework that systematically purifies signals from both feature-topological and sequence-frequency perspectives. Specifically, we first design a graph-based feature denoising module that leverages Laplacian smoothing on item semantic graphs as a structural low-pass filter, effectively suppressing high-frequency semantic noise while preserving salient features. For sequence purification, we introduce a frequency-domain sequence denoising module, utilizing the Fast Fourier Transform and a learnable frequency filter to adaptively modulate the interaction spectrum and attenuate anomalous signals. Furthermore, a multi-modal contrastive alignment objective is incorporated to bridge the heterogeneity gap and enforce cross-modal semantic consistency. Extensive experiments on four public benchmark datasets demonstrate that DDMSR consistently outperforms state-of-the-art baselines, providing a highly robust and efficient solution for multi-modal sequential recommendation. The source code is available at: ~\\href{https://github.com/jluo00/DDMSR}{\\textcolor{blue}{https://github.com/jluo00/DDMSR}}.",
+      "authors": [
+        "Jie Luo",
+        "Qi Jin",
+        "Xinming Zhang"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-21T07:06:06Z",
+      "updated_at": "2026-07-21T07:06:06Z",
+      "abs_url": "https://arxiv.org/abs/2607.18786",
+      "pdf_url": "https://arxiv.org/pdf/2607.18786",
+      "comment": "Accepted by ACM MM 2026. 12 Pages",
+      "affiliations": [
+        "University of Science and Technology of China"
+      ],
+      "topic": "recommender_systems",
+      "quality_score": 59.0,
+      "summary_zh": "提出DDMSR框架，针对多模态序列推荐中的特征级冗余和序列级随机噪声，通过图拉普拉斯平滑进行特征去噪，并利用频域滤波进行序列去噪，同时引入多模态对比对齐。实验表明该方法优于现有基线。",
+      "practical_value_zh": "该方法可提升推荐系统在真实场景中的鲁棒性，有效处理预训练特征与推荐意图不匹配以及误点击等噪声问题，适用于电商、内容推荐等实际应用。",
+      "quality_signal_zh": "论文已被ACM MM 2026录用（12页），代码开源在GitHub（https://github.com/jluo00/DDMSR）。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.18600",
+      "title": "Topology-Aware Tokenization for Generative Recommendation",
+      "abstract": "Generative recommendation reformulates sequential recommendation as an autoregressive generation task, yet a critical issue in this paradigm remains overlooked: topology distortion in item tokenization. In particular, we observe that the intrinsic adjacency relationships of items in the pretrained semantic embedding space are significantly disrupted after quantization. This topology distortion misleads the model's perception of item similarity, ultimately bottlenecking the accuracy of generative recommendations. To address this issue, we propose Topology-Aware Tokenization (TopoTok), an item tokenization framework that preserves item relational structure throughout the quantization hierarchy. Different from the prior monolithic supervision in tokenization, TopoTok introduces a multi-level distillation scheme to progressively recover the topology from coarse to fine granularity: 1) Inter-Group Distillation to capture global cluster-wise relations; 2) Intra-Group Distillation to refine local structures within semantic clusters; and 3) Inter-Item Distillation to enforce fine-grained alignment at the individual item level. Extensive experiments on three benchmark datasets demonstrate that TopoTok effectively alleviates topology distortion and consistently outperforms state-of-the-art tokenizers, achieving significant performance gains of up to 9.42% in Recall@5.",
+      "authors": [
+        "Yaokun Liu",
+        "Yifan Liu",
+        "Zhenrui Yue",
+        "Gyuseok Lee",
+        "Zelin Li",
+        "Ruichen Yao",
+        "Dong Wang"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-21T00:27:30Z",
+      "updated_at": "2026-07-21T00:27:30Z",
+      "abs_url": "https://arxiv.org/abs/2607.18600",
+      "pdf_url": "https://arxiv.org/pdf/2607.18600",
+      "comment": "Accepted to RecSys 2026. 10 pages",
+      "affiliations": [
+        "Meta",
+        "University of Illinois",
+        "University of Illinois Urbana-Champaign"
+      ],
+      "topic": "generative_recommendation",
+      "quality_score": 51.5,
+      "summary_zh": "提出拓扑感知的标记化方法（TopoTok），通过多层级蒸馏保留物品语义空间中的拓扑结构，缓解生成式推荐中离散标记化导致的拓扑失真问题，在三个基准数据集上取得显著提升。",
+      "practical_value_zh": "提升生成式推荐的准确率，尤其在物品相似性保留方面，可应用于实际推荐系统改善召回效果。",
+      "quality_signal_zh": "被顶级会议RecSys 2026接收，实验显示Recall@5提升高达9.42%，代码公开（GitHub）。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    },
+    {
+      "arxiv_id": "2607.17473",
+      "title": "RAMP: Robust Ad Recommendation Under Limited Personalized-Feature Availability via Masking and Alignment Pathways",
+      "abstract": "Click-through rate (CTR) and conversion rate (CVR) prediction are fundamental tasks in online advertising, aiming to estimate the likelihood of user interactions based on various features. While personalized attributes such as age and gender can significantly enhance predictive accuracy, their use is increasingly restricted by privacy regulations, thereby limiting available data for both training and inference. To address this challenge, we propose RAMP (Robust Ad Recommendation Under Limited Personalized-Feature Availability via Masking and Alignment Pathways), which is designed to improve CTR/CVR prediction accuracy when personalized features are not accessible, thus supporting deployment in privacy-constrained settings.RAMP consists of (i) a personalized pathway built upon a dual-tower component with identical inputs but independent parameters, where output masking separates predictions for personalized and non-personalized signals, (ii) a separate non-personalized pathway trained with non-personalized features only, and (iii) a distillation-inspired prediction-alignment architecture between (i) and (ii) that improves prediction when personalized features are unavailable. We conduct comprehensive experiments using both public benchmarks and industrial datasets to evaluate the performance of RAMP. Our evaluation spans multiple backbone models and different settings: with and without access to personalized features. The results show that RAMP consistently outperforms state-of-the-art methods when personalized features are missing, while maintaining competitive performance when all features are available. %demonstrating its effectiveness and practicality for real-world advertising systems. Our code is publicly available at https://github.com/Ruixinhua/RAMP.",
+      "authors": [
+        "Dairui Liu",
+        "Zhongyi Lu",
+        "Roger Zhe Li",
+        "Changhong Jin",
+        "Jitao Lu",
+        "Xinyang Shao",
+        "Bichen Shi",
+        "Mete Sertkan",
+        "Aghiles Salah",
+        "Aonghus Lawlor",
+        "Barry Smyth",
+        "Tri Kurniawan Wijaya",
+        "Ruihai Dong",
+        "Xingsheng Guo"
+      ],
+      "categories": [
+        "cs.IR"
+      ],
+      "published_at": "2026-07-20T01:57:02Z",
+      "updated_at": "2026-07-20T01:57:02Z",
+      "abs_url": "https://arxiv.org/abs/2607.17473",
+      "pdf_url": "https://arxiv.org/pdf/2607.17473",
+      "comment": "12 pages, 4 figures, accepted to ICTIR '26",
+      "affiliations": [
+        "Huawei",
+        "University College Dublin",
+        "Huawei Ireland Research Center"
+      ],
+      "topic": "online_advertising",
+      "quality_score": 47.0,
+      "summary_zh": "提出RAMP框架，通过掩码和对齐路径提升隐私约束下的CTR/CVR预测精度，在缺乏个性化特征时优于现有方法，已获ICTIR '26接收。",
+      "practical_value_zh": "在广告推荐中应对隐私法规限制，允许在用户特征缺失时保持较高预测性能，具备工业部署潜力。",
+      "quality_signal_zh": "论文被ICTIR接收，代码开源，实验充分，但质量评分47/100，属中等水平。",
+      "sent_at": "2026-07-26T06:24:12.714207+00:00"
+    }
+  ]
 }
